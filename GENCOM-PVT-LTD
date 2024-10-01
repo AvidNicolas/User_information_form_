@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <style>
+        <link rel="stylesheet" href="styles.css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+            .container{
+                max-width: 600px;
+                margin: auto;
+                background: blue;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 10px;
+            
+            }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .tab {
+            padding: 10px 15px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tab.active {
+            background-color: #28a745;
+            color: white;
+        }
+        .form-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .form-container.active {
+            display: block;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: rgb(32, 1, 1);
+            border: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #f51b2e;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>USER INFORMATION FORM</h2>
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('personalInfo')">Personal Info</div>
+        <div class="tab" onclick="showTab('bankInfo')">Bank Info</div>
+    </div>
+
+    <div id="personalInfo" class="form-container active">
+        <label for="fullName">Enter Your Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="phoneNumber">Enter Your Phone Number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+        <label for="address">Enter Your Address</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="dob">Enter Your Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="assassin">Enter Last 4 Digits of Assassin</label>
+        <input type="number" id="assassin" name="assassin" required>
+    </div>
+
+    <div id="bankInfo" class="form-container">
+        <label for="cardNumber">Enter Your Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+
+        <label for="expiration">Enter Your Expiration Date</label>
+        <input type="date" id="expiration" name="expiration" required>
+
+        <label for="cvv">Enter Your CVV</label>
+        <input type="number" id="cvv" name="cvv" required>
+
+        <label for="bankName">Enter Your Bank Name</label>
+        <input type="text" id="bankName" name="bankName" required>
+    </div>
+
+    <button type="submit">Submit</button>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.form-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
